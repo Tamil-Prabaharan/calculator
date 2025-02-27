@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.position{
+			display: flex;
+			justify-content: center;
+
+		}
+		.calculator-out{
+			margin: 20px;
+			padding: 20px;
+			border-radius: 50px;
+			background-color: black;
+			flex-wrap: wrap;
+
+		}
+		h1{
+			color: white;
+			font-size: 30px;
+			font-weight: bold;
+			display: flex;
+			justify-content: center;
+		}
+		
+		input{
+			display: flex;
+			background-color: white;
+			height: 50px;
+			width: 500px;
+			margin-left: 50px;
+			margin-right: 50px;
+			border-radius: 50px;
+			align-items: center;
+			font-size: 30px;
+			text-align: right;
+			padding-right: 20px;
+		}
+		.buttons-1st-row,.buttons-2nd-row,.buttons-3rd-row,.buttons-4th-row,.buttons-5th-row,.buttons-6th-row,.buttons-7th-row{
+			flex-wrap: wrap;
+			display: flex;
+			justify-content: center;
+			margin-right: 50px;
+			list-style: none;
+		}
+		button{
+			display: flex;
+			justify-content: center;
+			padding: 20px;
+			font-size: 15px;
+			font-weight: bold;
+			background-color: orange;
+			border-radius: 100%;
+			width: 85px;
+			margin-left: 20px;
+			margin-top: 10px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="position">
+		<div class="calculator-out">
+			<h1>CALCULATER</h1>
+			<div class="cal-result">
+				<input type="text" name="text" id="display">
+				
+			</div>
+			<div class="buttons">
+				<ol class="buttons-1st-row">
+					<li><button class="btn" id="r1" onclick="calc('2nd')">2nd</button> </li>
+					<li><button class="btn" id="r2" onclick="deg()">deg</button> </li>
+					<li><button class="btn" id="r3" onclick="sin()">sin-1</button> </li>
+					<li><button class="btn" id="r4" onclick="cos()">cos-1</button> </li>
+					<li><button class="btn" id="r5" onclick="tan()">tan-1</button> </li>
+				</ol>
+				<ol class="buttons-2nd-row">
+					<li><button class="btn" id="r6" onclick="pow()">X^y</button> </li>
+					<li><button class="btn" id="r7" onclick="log()">log</button> </li>
+					<li><button class="btn" id="r8" onclick="calc()">in</button> </li>
+					<li><button class="btn" id="r9" onclick="calc()">(</button> </li>
+					<li><button class="btn" id="r10" onclick="calc()">)</button> </li>
+				</ol>
+				<ol class="buttons-3rd-row">
+					<li><button class="btn" id="r11" onclick="sqrt()">x^1/2</button> </li>
+					<li><button id="r12" onclick="calcallclear()">AC</button> </li>
+					<li><button id="r13" onclick="backspc()"><--</button> </li>
+					<li><button id="r14" onclick="calcoperator('%')">%</button> </li>
+					<li><button id="r15" onclick="calcoperator('/')">/</button> </li>
+				</ol>
+				<ol class="buttons-4th-row">
+					<li><button class="btn" id="r16" onclick="fact()">x!</button> </li>
+					<li><button id="r17" onclick="calcnum('7')">7</button> </li>
+					<li><button id="r18" onclick="calcnum('8')">8</button> </li>
+					<li><button id="r19" onclick="calcnum('9')">9</but8ton> </li>
+					<li><button id="r20" onclick="calcoperator('*')">x</button> </li>
+				</ol>
+				<ol class="buttons-5th-row">
+					<li><button class="btn" id="r21" onclick="oneby()">1/x</button> </li>
+					<li><button id="r22" onclick="calcnum('4')">4</button> </li>
+					<li><button id="r23" onclick="calcnum('5')">5</button> </li>
+					<li><button id="r24" onclick="calcnum('6')">6</button> </li>
+					<li><button id="r25" onclick="calcoperator('-')">-</button> </li>
+				</ol>
+				<ol class="buttons-6th-row">
+					<li><button class="btn" id="r26" onclick="pi()">3.14</button> </li>
+					<li><button id="r27" onclick="calcnum('1')">1</button> </li>
+					<li><button id="r28" onclick="calcnum('2')">2</button> </li>
+					<li><button id="r29" onclick="calcnum('3')">3</button> </li>
+					<li><button id="r30" onclick="calcoperator('+')">+</button> </li>
+				</ol>
+				<ol class="buttons-7th-row">
+					<li><button class="btn" id="r31" onclick="e()">e</button> </li>
+					<li><button id="r32" onclick="minmax()">()</button> </li>
+					<li><button id="r33" onclick="calcnum('0')">0</button> </li>
+					<li><button id="r34" onclick="calcnum('.')">.</button> </li>
+					<li><button id="r35" onclick="calcresult('=')">=</button> </li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	for(item of btn){
+		item.addEventListner('click',(e)=>{
+			btntext=e.target.innerText;
+			document.getElementById('display').value += btntext;
+		})
+	}
+	function minmax(){
+		document.getElementById('r31').value = "none";
+		document.getElementById('r26').value = "none";
+		document.getElementById('r21').value = "none";
+		document.getElementById('r16').value = "none";
+		document.getElementById('r11').value = "none";
+		document.getElementById('r6').value = "none";
+		document.getElementById('r7').value = "none";
+		document.getElementById('r8').value = "none";
+		document.getElementById('r9').value = "none";
+		document.getElementById('r10').value = "none";
+		document.getElementById('r1').value = "none";
+		document.getElementById('r2').value = "none";
+		document.getElementById('r3').value = "none";
+		document.getElementById('r4').value = "none";
+		document.getElementById('r5').value = "none";
+	}
+	function calcnum(number) {
+		// body...
+		document.getElementById('display').value += number;
+	}
+	function calcoperator(operator) {
+		// body...
+		document.getElementById('display').value += ' '+operator+' ';
+	}
+	function calcallclear() {
+		// body...
+		document.getElementById('display').value = ' ';
+	}
+	function calcresult(){
+		let expresion = document.getElementById('display').value;
+		try {
+			
+			document.getElementById('display').value=eval(expresion);
+		}catch(e){
+			 document.getElementById('display').value = 'ERROR';
+		}	
+	}
+	function sin(){
+		document.getElementById('display').value =Math.sin(document.getElementById('display').value);
+	}
+	function cos(){
+		document.getElementById('display').value =Math.cos(document.getElementById('display').value);
+	}
+	function tan(){
+		document.getElementById('display').value =Math.tan(document.getElementById('display').value);
+	}
+	function deg(){
+		document.getElementById('display').value =Math.deg(document.getElementById('display').value);
+	}
+	function pow(){
+		document.getElementById('display').value =Math.pow(document.getElementById('display').value,2);
+	}
+	function sqrt(){
+		document.getElementById('display').value =Math.sqrt(document.getElementById('display').value,2);
+	}
+	function log(){
+		document.getElementById('display').value =Math.log(document.getElementById('display').value);
+	}
+	function pi(){
+		document.getElementById('display').value =3.14159265359;
+	}
+	function e(){
+		document.getElementById('display').value =2.71828182846;
+	}
+	function oneby(){
+		document.getElementById('display').value =(1/document.getElementById('display').value);
+	}
+	function fact(){
+		var i,num,f;
+		f=1;
+		num=document.getElementById('display').value;
+		for (var i = 1; i <= num; i++) {
+			f=f*i;
+		}
+		i=i-1;
+		document.getElementById('display').value =f;
+	}
+	function backspc(){
+		document.getElementById('display').value = document.getElementById('display').value.substr(0,document.getElementById('display').value.length-1);
+	}
+	
+
+</script>
+</html>
